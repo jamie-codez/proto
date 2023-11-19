@@ -1,5 +1,6 @@
 package com.jamie.app.protologin
 
+import android.provider.CalendarContract.Colors
 import android.widget.CheckBox
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -18,10 +19,12 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Email
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.Divider
@@ -44,6 +47,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -215,7 +219,7 @@ fun LoginScreen() {
                     )
                 )
             }
-            Spacer(modifier = Modifier.height(10.dp))
+            Spacer(modifier = Modifier.height(20.dp))
             Row(
                 horizontalArrangement = Arrangement.SpaceEvenly,
                 verticalAlignment = Alignment.CenterVertically,
@@ -237,15 +241,69 @@ fun LoginScreen() {
                 )
 
             }
+            Spacer(modifier = Modifier.height(20.dp))
+            Row {
+                Button(
+                    onClick = { /*TODO*/ },
+                    modifier = Modifier
+                        .width(150.dp)
+                        .width(45.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color.Red,
+                        disabledContainerColor = Color.Gray
+                    )
+                ) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.google_icon),
+                            contentDescription = "Google icon",
+                            tint = Color.White
+                        )
+                        Spacer(modifier = Modifier.width(12.dp))
+                        Text(
+                            text = "Sign in with Google",
+                            style = TextStyle(color = Color.White, fontSize = 12.sp)
+                        )
+                    }
+                }
+                Spacer(modifier = Modifier.width(20.dp))
+                Button(
+                    onClick = { /*TODO*/ },
+                    modifier = Modifier
+                        .width(150.dp)
+                        .width(45.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color.Blue,
+                        disabledContainerColor = Color.Gray
+                    )
+                ) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.facebook_icon),
+                            contentDescription = "Google icon",
+                            tint = Color.White
+                        )
+                        Spacer(modifier = Modifier.width(12.dp))
+                        Text(
+                            text = "Sign in with Facebook",
+                            style = TextStyle(color = Color.White, fontSize = 12.sp)
+                        )
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(40.dp))
+            Row {
+                Text(
+                    text = "Don't have an account?",
+                    style = TextStyle(color = Color.Black, fontSize = 14.sp)
+                )
+                Spacer(modifier = Modifier.width(5.dp))
+                ClickableText(
+                    text = AnnotatedString(stringResource(id = R.string.sign_up)),
+                    style = TextStyle(color = Color.Blue, fontSize = 14.sp),
+                    onClick = {}
+                )
+            }
         }
     }
 }
-
-//@Composable
-//fun Divider(
-//    modifier: Modifier = Modifier,
-//    thickness: Dp = DividerDefaults.Thickness,
-//    color: Color = DividerDefaults.color
-//) {
-//
-//}
